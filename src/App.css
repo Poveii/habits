@@ -2,3 +2,11 @@ body {
   height: 100vh;
   background-color: #09090a;
 }
+
+button {
+  padding: 16px 24px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #8b5cf6;
+  border-radius: 8px;
+}
