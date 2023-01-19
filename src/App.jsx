@@ -1,4 +1,5 @@
 import Logo from "./assets/logo.svg";
+import PlusIcon from "./assets/plus.svg";
 import "./App.css";
 
 function App() {
@@ -9,7 +10,10 @@ function App() {
         alt="Logotipo do aplicativo Habits, seis quadrados pequenos em cima do nome habits, tudo em minúsculo, as cores dos quadrados vão do preto ao lilás, passando pelo roxo."
       />
 
-      <button>+ Registrar o meu dia</button>
+      <button>
+        <img src={PlusIcon} alt="Ícone sinal de mais da cor roxa" />
+        Registrar o meu dia
+      </button>
     </div>
   );
 }
