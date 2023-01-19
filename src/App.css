@@ -10,7 +10,16 @@ header {
 }
 
 button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 16px 24px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 125%;
+
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #8b5cf6;
