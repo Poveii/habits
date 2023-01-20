@@ -26,3 +26,19 @@ button {
   border: 1px solid #8b5cf6;
   border-radius: 8px;
 }
+
+input {
+  appearance: none;
+
+  width: 64px;
+  height: 64px;
+
+  background-color: #18181b;
+  border: 2px solid #27272a;
+  border-radius: 8px;
+}
+
+input:checked {
+  background-color: #8b5cf6;
+  border: 2px solid #a78bfa;
+}
