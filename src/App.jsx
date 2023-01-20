@@ -17,8 +17,29 @@ function App() {
         </button>
       </header>
 
-      <input type="checkbox" />
-      <input type="checkbox" checked />
+      <form id="form-habits">
+        <div className="habits">
+          <div className="habit">🏃‍♂️️</div>
+          <div className="habit">💧️</div>
+          <div className="habit">🍎️</div>
+        </div>
+
+        <div className="days">
+          <div className="day">
+            <div>19/01</div>
+            <input type="checkbox" name="run" />
+            <input type="checkbox" name="water" />
+            <input type="checkbox" name="food" />
+          </div>
+
+          <div className="day">
+            <div>20/01</div>
+            <input type="checkbox" name="run" />
+            <input type="checkbox" name="water" />
+            <input type="checkbox" name="food" />
+          </div>
+        </div>
+      </form>
     </div>
   );
 }
