@@ -1,9 +1,11 @@
+/* ====== LAYOUT ====== */
 body {
   height: 100vh;
   background-color: #09090a;
   color: #ffffff;
 }
 
+/* ====== HEADER ====== */
 header {
   display: flex;
   align-items: center;
@@ -28,6 +30,7 @@ button {
   border-radius: 8px;
 }
 
+/* ====== FORM HABITS ====== */
 #form-habits {
   display: flex;
   padding: 0px 48px;
