@@ -16,6 +16,9 @@ function App() {
           Registrar o meu dia
         </button>
       </header>
+
+      <input type="checkbox" />
+      <input type="checkbox" checked />
     </div>
   );
 }
