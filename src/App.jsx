@@ -11,34 +11,29 @@ function App() {
           alt="Logotipo do aplicativo Habits, seis quadrados pequenos em cima do nome habits, tudo em minúsculo, as cores dos quadrados vão do preto ao lilás, passando pelo roxo."
         />
 
-        <button>
+        <button type="button">
           <img src={PlusIcon} alt="Ícone sinal de mais da cor roxa" />
-          Registrar o meu dia
+          <div>Registrar o meu dia</div>
         </button>
       </header>
 
       <form id="form-habits">
         <div className="habits">
-          <div className="habit">🏃‍♂️️</div>
-          <div className="habit">💧️</div>
-          <div className="habit">🍎️</div>
-        </div>
-
-        <div className="days">
-          <div className="day">
-            <div>19/01</div>
-            <input type="checkbox" name="run" />
-            <input type="checkbox" name="water" />
-            <input type="checkbox" name="food" />
+          <div className="habit" data-name="run">
+            🏃‍♂️️
           </div>
-
-          <div className="day">
-            <div>20/01</div>
-            <input type="checkbox" name="run" />
-            <input type="checkbox" name="water" />
-            <input type="checkbox" name="food" />
+          <div className="habit" data-name="water">
+            💧️
+          </div>
+          <div className="habit" data-name="food">
+            🍎️
+          </div>
+          <div className="habit" data-name="journal">
+            📕️
           </div>
         </div>
+
+        <div className="days"></div>
       </form>
     </div>
   );
