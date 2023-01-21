@@ -4,15 +4,21 @@ function FormHabitsContent() {
   useEffect(() => {
     const formHabits = document.querySelector("#form-habits");
     const nlwSetup = new NLWSetup(formHabits);
+    const button = document.querySelector("header button");
 
-    const data = {
-      run: ["01-19", "01-20", "01-22"],
-      water: ["01-20"],
-      food: ["01-21"],
-    };
+    function addDay() {
+      const today = "21/01";
+      const dayExists = nlwSetup.dayExists(today);
 
-    nlwSetup.setData(data);
-    nlwSetup.load();
+      if (dayExists) {
+        return alert("Dia já incluso! 🔴️");
+      }
+
+      alert("Dia adicionado com sucesso! ✅️");
+      nlwSetup.addDay(today);
+    }
+
+    button.addEventListener("click", addDay);
   }, []);
 
   return (
