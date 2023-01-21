@@ -7,10 +7,14 @@ body {
 
 /* ====== HEADER ====== */
 header {
+  position: fixed;
+  width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 48px;
+  background-color: #09090a;
 }
 
 button {
@@ -28,12 +32,13 @@ button {
   color: #ffffff;
   border: 1px solid #8b5cf6;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 /* ====== FORM HABITS ====== */
 #form-habits {
   display: flex;
-  padding: 0px 48px;
+  padding: 180px 48px 48px;
 }
 
 .habits {
@@ -89,4 +94,10 @@ input {
 input:checked {
   background-color: #8b5cf6;
   border: 2px solid #a78bfa;
+}
+
+@media (max-width: 570px) {
+  button div {
+    display: none;
+  }
 }
