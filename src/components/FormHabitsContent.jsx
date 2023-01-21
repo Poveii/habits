@@ -7,7 +7,7 @@ function FormHabitsContent() {
     const button = document.querySelector("header button");
 
     function addDay() {
-      const today = "21/01";
+      const today = new Date().toLocaleDateString("pt-BR").slice(0, 5);
       const dayExists = nlwSetup.dayExists(today);
 
       if (dayExists) {
