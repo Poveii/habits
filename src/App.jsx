@@ -1,5 +1,6 @@
 import Logo from "./assets/logo.svg";
 import PlusIcon from "./assets/plus.svg";
+import FormHabitsContent from "./components/FormHabitsContent";
 import "./App.css";
 
 function App() {
@@ -18,22 +19,7 @@ function App() {
       </header>
 
       <form id="form-habits">
-        <div className="habits">
-          <div className="habit" data-name="run">
-            🏃‍♂️️
-          </div>
-          <div className="habit" data-name="water">
-            💧️
-          </div>
-          <div className="habit" data-name="food">
-            🍎️
-          </div>
-          <div className="habit" data-name="journal">
-            📕️
-          </div>
-        </div>
-
-        <div className="days"></div>
+        <FormHabitsContent />
       </form>
     </div>
   );
