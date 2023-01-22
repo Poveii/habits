@@ -7,7 +7,6 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
@@ -36,9 +35,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O Habits é um site onde você pode organizar seus hábitos diários, você vem clica no botão "Registrar o meu dia" e vai marcando os hábitos que você conseguiu, no dia seguinte você repete o processo, e o dia anterior ainda estará lá guardado no seu navegador.
 
-## ✈️ Deploy
-
-Hospedado na Vercel. [Aqui o link!](...)
+[Veja o projeto online! ←](https://poveii-habits.netlify.app/)
 
 ## 🔖 Layout
 
