@@ -18,7 +18,17 @@ function FormHabitsContent() {
       nlwSetup.addDay(today);
     }
 
+    function saveData() {
+      localStorage.setItem("NLWSetup@habits", JSON.stringify(nlwSetup.data));
+    }
+
     button.addEventListener("click", addDay);
+    formHabits.addEventListener("change", saveData);
+
+    const habitsData =
+      JSON.parse(localStorage.getItem("NLWSetup@habits")) || {};
+    nlwSetup.setData(habitsData);
+    nlwSetup.load();
   }, []);
 
   return (
