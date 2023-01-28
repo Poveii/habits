@@ -48,7 +48,9 @@ function FormHabitsContent() {
         </div>
       </div>
 
-      <div className="days"></div>
+      <div className="days">
+        <span>Clique em "Registrar o meu dia" para começar</span>
+      </div>
     </>
   );
 }
