@@ -1,4 +1,11 @@
 import { useEffect } from "react";
+import habitsEmojisList from "../habits.json";
+
+const reducedHabitsEmojis = Object.keys(habitsEmojisList)
+  .filter((i) => i < 5)
+  .reduce((obj, key) => {
+    return Object.assign(obj, { [key]: habitsEmojisList[key] });
+  }, {});
 
 function FormHabitsContent() {
   useEffect(() => {
@@ -34,18 +41,13 @@ function FormHabitsContent() {
   return (
     <>
       <div className="habits">
-        <div className="habit" data-name="run">
-          🏃‍♂️️
-        </div>
-        <div className="habit" data-name="water">
-          💧️
-        </div>
-        <div className="habit" data-name="food">
-          🍎️
-        </div>
-        <div className="habit" data-name="journal">
-          📕️
-        </div>
+        {Object.values(reducedHabitsEmojis).map((habit) => {
+          return (
+            <div className="habit" data-name={habit.name} key={habit.name}>
+              {habit.emoji}
+            </div>
+          );
+        })}
       </div>
 
       <div className="days">
