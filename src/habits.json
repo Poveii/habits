@@ -1,0 +1,10 @@
+{
+  "0": { "name": "run", "emoji": "🏃️" },
+  "1": { "name": "water", "emoji": "💧️" },
+  "2": { "name": "food", "emoji": "🍎️" },
+  "3": { "name": "journal", "emoji": "📕️" },
+  "4": { "name": "sleep", "emoji": "💤️" },
+  "5": { "name": "coding", "emoji": "🧑‍💻️" },
+  "6": { "name": "meditate", "emoji": "🙏️" },
+  "7": { "name": "gym", "emoji": "🏋️" }
+}
