@@ -7,15 +7,18 @@ const swapElements = (array, index1, index2) => {
   array[index2] = temp;
 };
 
-function findObjectIndexFromValue(element) {
-  return Object.values(habitsEmojisList).findIndex((e) => e.emoji === element);
+function findObjectIndexFromValue(object, element) {
+  return Object.values(object).findIndex((e) => e.emoji === element);
 }
 
 function PopoverContent({ setHabitsEmojis, setPopoverIndex }) {
-  const menuHabitsEmojis = Object.keys(habitsEmojisList)
+  let actualHabitsEmojis =
+    JSON.parse(localStorage.getItem("NLWSetup@emojis")) || habitsEmojisList;
+
+  const menuHabitsEmojis = Object.keys(actualHabitsEmojis)
     .filter((i) => i > 5)
     .reduce((obj, key) => {
-      return Object.assign(obj, { [key]: habitsEmojisList[key] });
+      return Object.assign(obj, { [key]: actualHabitsEmojis[key] });
     }, {});
 
   return (
@@ -29,12 +32,16 @@ function PopoverContent({ setHabitsEmojis, setPopoverIndex }) {
               const emojiToMenu =
                 e.target.parentNode.parentNode.childNodes[0].textContent;
 
-              const emojiClickedObjectIndex =
-                findObjectIndexFromValue(emojiClicked);
-              const emojiToMenuObjectIndex =
-                findObjectIndexFromValue(emojiToMenu);
+              const emojiClickedObjectIndex = findObjectIndexFromValue(
+                actualHabitsEmojis,
+                emojiClicked
+              );
+              const emojiToMenuObjectIndex = findObjectIndexFromValue(
+                actualHabitsEmojis,
+                emojiToMenu
+              );
 
-              const newHabitsEmojis = habitsEmojisList;
+              const newHabitsEmojis = actualHabitsEmojis;
 
               swapElements(
                 newHabitsEmojis,
@@ -47,6 +54,10 @@ function PopoverContent({ setHabitsEmojis, setPopoverIndex }) {
 
               setHabitsEmojis(reducedNewHabitsEmojis);
               setPopoverIndex(-1);
+              localStorage.setItem(
+                "NLWSetup@emojis",
+                JSON.stringify(newHabitsEmojis)
+              );
             }}
           >
             {item.emoji}

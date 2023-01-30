@@ -11,7 +11,10 @@ export function reduceObjectArrayToFive(object) {
     }, {});
 }
 
-const reducedHabitsEmojis = reduceObjectArrayToFive(habitsEmojisList);
+let localHabitsEmojis =
+  JSON.parse(localStorage.getItem("NLWSetup@emojis")) || habitsEmojisList;
+
+const reducedHabitsEmojis = reduceObjectArrayToFive(localHabitsEmojis);
 
 const handleHabitClick = (e, index, setPopoverIndex) => {
   if (!e.target.classList.contains("popoverTrigger")) return;
