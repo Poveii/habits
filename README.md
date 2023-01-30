@@ -8,6 +8,7 @@
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-contribuição">Contribuição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -40,6 +41,12 @@ O Habits é um site onde você pode organizar seus hábitos diários, você vem 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1195327109778210238/duplicate). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+
+## 🫂 Contribuição
+
+Você também pode contribuir com esse pequeno projeto, fazendo uma PR (Pull Request) com a adição de um novo habitEmoji 🤩. Obs.: Tem que ser um hábito comprovado que as pessoas querem fazer ou estejam fazendo.
+
+→ [Em breve um passo a passo.](...)
 
 ## :memo: Licença
 
