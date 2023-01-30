@@ -3,11 +3,15 @@ import habitsEmojisList from "../habits.json";
 import PopoverContent from "./PopoverContent";
 import "./Popover.css";
 
-const reducedHabitsEmojis = Object.keys(habitsEmojisList)
-  .filter((i) => i < 5)
-  .reduce((obj, key) => {
-    return Object.assign(obj, { [key]: habitsEmojisList[key] });
-  }, {});
+export function reduceObjectArrayToFive(object) {
+  return Object.keys(object)
+    .filter((k) => k < 5)
+    .reduce((obj, key) => {
+      return Object.assign(obj, { [key]: object[key] });
+    }, {});
+}
+
+const reducedHabitsEmojis = reduceObjectArrayToFive(habitsEmojisList);
 
 const handleHabitClick = (e, index, setPopoverIndex) => {
   if (!e.target.classList.contains("popoverTrigger")) return;
@@ -15,6 +19,8 @@ const handleHabitClick = (e, index, setPopoverIndex) => {
 };
 
 function FormHabitsContent() {
+  const [habitsEmojis, setHabitsEmojis] = useState(reducedHabitsEmojis);
+
   useEffect(() => {
     const formHabits = document.querySelector("#form-habits");
     const nlwSetup = new NLWSetup(formHabits);
@@ -43,14 +49,14 @@ function FormHabitsContent() {
       JSON.parse(localStorage.getItem("NLWSetup@habits")) || {};
     nlwSetup.setData(habitsData);
     nlwSetup.load();
-  }, []);
+  }, [habitsEmojis]);
 
   const [popoverIndex, setPopoverIndex] = useState(-1);
 
   return (
     <>
       <div className="habits">
-        {Object.values(reducedHabitsEmojis).map((habit, index) => {
+        {Object.values(habitsEmojis).map((habit, index) => {
           const itemIndex = index;
 
           return (
@@ -64,7 +70,12 @@ function FormHabitsContent() {
               }}
             >
               {habit.emoji}
-              {popoverIndex === itemIndex ? <PopoverContent /> : null}
+              {popoverIndex === itemIndex ? (
+                <PopoverContent
+                  setHabitsEmojis={setHabitsEmojis}
+                  setPopoverIndex={setPopoverIndex}
+                />
+              ) : null}
             </div>
           );
         })}
