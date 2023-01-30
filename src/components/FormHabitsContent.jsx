@@ -1,11 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import habitsEmojisList from "../habits.json";
+import PopoverContent from "./PopoverContent";
+import "./Popover.css";
 
 const reducedHabitsEmojis = Object.keys(habitsEmojisList)
   .filter((i) => i < 5)
   .reduce((obj, key) => {
     return Object.assign(obj, { [key]: habitsEmojisList[key] });
   }, {});
+
+const handleHabitClick = (e, index, setPopoverIndex) => {
+  if (!e.target.classList.contains("popoverTrigger")) return;
+  setPopoverIndex(index);
+};
 
 function FormHabitsContent() {
   useEffect(() => {
@@ -38,13 +45,26 @@ function FormHabitsContent() {
     nlwSetup.load();
   }, []);
 
+  const [popoverIndex, setPopoverIndex] = useState(-1);
+
   return (
     <>
       <div className="habits">
-        {Object.values(reducedHabitsEmojis).map((habit) => {
+        {Object.values(reducedHabitsEmojis).map((habit, index) => {
+          const itemIndex = index;
+
           return (
-            <div className="habit" data-name={habit.name} key={habit.name}>
+            <div
+              className="habit popoverTrigger"
+              data-name={habit.name}
+              key={habit.name}
+              onClick={(event) => {
+                handleHabitClick(event, itemIndex, setPopoverIndex);
+                if (popoverIndex === itemIndex) return setPopoverIndex(-1);
+              }}
+            >
               {habit.emoji}
+              {popoverIndex === itemIndex ? <PopoverContent /> : null}
             </div>
           );
         })}
