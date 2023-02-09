@@ -3,10 +3,11 @@
 }
 
 .popoverContent {
-  width: 208px;
-  max-height: 120px;
+  max-width: 208px;
+  height: fit-content;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding: 4px 8px;
   z-index: 1;
