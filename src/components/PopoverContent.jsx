@@ -1,6 +1,3 @@
-import habitsEmojisList from "../habits.json";
-import { reduceObjectArrayToFive } from "./FormHabitsContent";
-
 const swapElements = (array, index1, index2) => {
   let temp = array[index1];
   array[index1] = array[index2];

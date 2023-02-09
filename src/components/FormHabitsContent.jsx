@@ -3,7 +3,7 @@ import habitsEmojisList from "../habits.json";
 import PopoverContent from "./PopoverContent";
 import "./Popover.css";
 
-export function reduceObjectArrayToFive(object) {
+function reduceObjectArrayToFive(object) {
   return Object.keys(object)
     .filter((k) => k < 5)
     .reduce((obj, key) => {
