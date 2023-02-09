@@ -14,15 +14,14 @@ export function reduceObjectArrayToFive(object) {
 let localHabitsEmojis =
   JSON.parse(localStorage.getItem("NLWSetup@emojis")) || habitsEmojisList;
 
-const reducedHabitsEmojis = reduceObjectArrayToFive(localHabitsEmojis);
-
 const handleHabitClick = (e, index, setPopoverIndex) => {
   if (!e.target.classList.contains("popoverTrigger")) return;
   setPopoverIndex(index);
 };
 
 function FormHabitsContent() {
-  const [habitsEmojis, setHabitsEmojis] = useState(reducedHabitsEmojis);
+  const [habitsEmojis, setHabitsEmojis] = useState(localHabitsEmojis);
+  const reducedHabitsEmojis = reduceObjectArrayToFive(habitsEmojis);
 
   useEffect(() => {
     const formHabits = document.querySelector("#form-habits");
@@ -52,6 +51,25 @@ function FormHabitsContent() {
       JSON.parse(localStorage.getItem("NLWSetup@habits")) || {};
     nlwSetup.setData(habitsData);
     nlwSetup.load();
+
+    if (
+      Object.keys(habitsEmojisList).length === Object.keys(habitsEmojis).length
+    )
+      return;
+
+    let diff =
+      Object.keys(habitsEmojisList).length - Object.keys(habitsEmojis).length;
+    while (diff != 0 && diff > 0) {
+      let inverseDiff = -Math.abs(diff);
+      let itemKey = Object.keys(habitsEmojis).length;
+      let value = Object.values(habitsEmojisList).at(inverseDiff);
+
+      setHabitsEmojis((a) => ({
+        ...a,
+        [itemKey]: value,
+      }));
+      diff--;
+    }
   }, [habitsEmojis]);
 
   const [popoverIndex, setPopoverIndex] = useState(-1);
@@ -59,7 +77,7 @@ function FormHabitsContent() {
   return (
     <>
       <div className="habits">
-        {Object.values(habitsEmojis).map((habit, index) => {
+        {Object.values(reducedHabitsEmojis).map((habit, index) => {
           const itemIndex = index;
 
           return (
@@ -77,6 +95,7 @@ function FormHabitsContent() {
                 <PopoverContent
                   setHabitsEmojis={setHabitsEmojis}
                   setPopoverIndex={setPopoverIndex}
+                  habitsEmojis={habitsEmojis}
                 />
               ) : null}
             </div>

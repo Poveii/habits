@@ -11,9 +11,8 @@ function findObjectIndexFromValue(object, element) {
   return Object.values(object).findIndex((e) => e.emoji === element);
 }
 
-function PopoverContent({ setHabitsEmojis, setPopoverIndex }) {
-  let actualHabitsEmojis =
-    JSON.parse(localStorage.getItem("NLWSetup@emojis")) || habitsEmojisList;
+function PopoverContent({ setHabitsEmojis, setPopoverIndex, habitsEmojis }) {
+  const actualHabitsEmojis = habitsEmojis;
 
   const menuHabitsEmojis = Object.keys(actualHabitsEmojis)
     .filter((i) => i > 5)
@@ -49,10 +48,7 @@ function PopoverContent({ setHabitsEmojis, setPopoverIndex }) {
                 emojiClickedObjectIndex
               );
 
-              const reducedNewHabitsEmojis =
-                reduceObjectArrayToFive(newHabitsEmojis);
-
-              setHabitsEmojis(reducedNewHabitsEmojis);
+              setHabitsEmojis(newHabitsEmojis);
               setPopoverIndex(-1);
               localStorage.setItem(
                 "NLWSetup@emojis",
